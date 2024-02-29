@@ -1,0 +1,17 @@
+What is the benefit of learning Javascript?
+There are a lot of benefits you can get when learning Javascript, one of them is that Javacript is very in demand when it comes to job opportunities. Not only it is the programming language of the browser, now you can also create a backend using node.js which means you can create a full stack applications. 
+
+What type of applications can be built with Javascript?
+You can craete web, mobile, desktop, server-side, real-time applications and many more using Javascript. You can have a full stack applications unlike other languages.
+
+Which programming language is good for beginners to learn (according to Michael's perspectives)?
+According to Michael's perspective, Javascript is the best language to learn if you are totally a beginner. Javasript is beginner friendly and have big community support.
+
+Which programming language is not good for beginners to learn, as their first language (according to Michael's perspectives)?
+According to Michael's perspective, Ruby is the worst language to learn if you are totally a beginner. Ruby is good for experienced developer but not good for beginner because ruby is not good for learning the fundamentals.
+
+Study how the 5 core building blocks are implemented from one language to another.  What are your observations?  Are they similar?  Different?  Which of these programming languages are you already familiar with?
+They are similar and just have a little bit of difference to each other. Other languages uses brackets while others not. You must also specify what type of variable you are declaring on other languages and some others you don't need to. I am familiar with PHP, Javascript and a little bit of Java.
+
+Anything else you've learned as you've read these articles and pondered about your situation?
+I've learned that I don't have to be harsh and judge myself because it really takes time to learn and become proficient in programming. I've also learned that we need to be exposed every day in order to make programming our second nature.
