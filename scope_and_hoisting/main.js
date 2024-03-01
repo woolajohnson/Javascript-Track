@@ -1,11 +1,11 @@
 // 1.
-// var a = 10;
-// function abc() {
-//     var a = 15;
-//     console.log("a is", a);
-// }
-// console.log("a really is", a);
-//a really is 10 - check
+var a = 10;
+function abc() {
+    var a = 15;
+    console.log("a is", a);
+}
+console.log("a really is", a);
+//a really is 10
 
 // 2.
 // var a = 10;
