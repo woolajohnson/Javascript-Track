@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+                cursor: crosshair;
+                background-color: #fff;
+            }
+
+            #colorChoices {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                display: flex;
+            }
+
+            .colorBox {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+                cursor: pointer;
+                border: 2px solid transparent;
+            }
+
+            #resetButton {
+                position: absolute;
+                top: 50px;
+                left: 10px;
+                cursor: pointer;
+            }
+
+            .colorDisplay {
+                position: absolute;
+                top: 50px;
+                left: 150px;
+                width: 30px;
+                height: 30px;
+                border: 2px solid #000;
+            }
+        </style>
+        <title>Interactive Circle Creator</title>
+    </head>
+    <body>
+        <div id="colorChoices">
+            <div
+                class="colorBox"
+                id="green"
+                onclick="chooseColor('green')"
+                style="background-color: green"
+            ></div>
+            <div
+                class="colorBox"
+                id="blue"
+                onclick="chooseColor('blue')"
+                style="background-color: blue"
+            ></div>
+            <div
+                class="colorBox"
+                id="red"
+                onclick="chooseColor('red')"
+                style="background-color: red"
+            ></div>
+        </div>
+        <div id="resetButton" onclick="resetScreen()">Reset</div>
+        <div class="colorDisplay" id="colorDisplay"></div>
+
+        <script>
+            let chosenColor = "green";
+
+            function chooseColor(color) {
+                chosenColor = color;
+
+                // Update the color display
+                document.getElementById("colorDisplay").style.backgroundColor =
+                    color;
+
+                // Remove border from all color boxes
+                document.getElementById("green").style.border = "none";
+                document.getElementById("blue").style.border = "none";
+                document.getElementById("red").style.border = "none";
+
+                // Add border to the chosen color box
+                document.getElementById(color).style.border = "2px solid #000";
+            }
+
+            function resetScreen() {
+                // Clear all circles on the screen
+                const circles =
+                    document.getElementsByClassName("shrink-circle");
+                while (circles.length > 0) {
+                    document.body.removeChild(circles[0]);
+                }
+
+                // Remove border from all color boxes
+                document.getElementById("green").style.border = "none";
+                document.getElementById("blue").style.border = "none";
+                document.getElementById("red").style.border = "none";
+
+                // Reset chosen color to green
+                chosenColor = "green";
+
+                // Update the color display
+                document.getElementById("colorDisplay").style.backgroundColor =
+                    "green";
+
+                // Add border to the green color box
+                document.getElementById("green").style.border =
+                    "2px solid #000";
+            }
+
+            document.addEventListener("click", function (event) {
+                const randomRadius =
+                    Math.floor(Math.random() * (200 - 10 + 1)) + 10;
+                createCircle(
+                    event.clientX,
+                    event.clientY,
+                    randomRadius,
+                    chosenColor
+                );
+            });
+
+            function createCircle(x, y, radius, backgroundColor) {
+                const circle = document.createElement("div");
+                circle.className = "shrink-circle";
+                circle.style.position = "absolute";
+                circle.style.top = y - radius + "px";
+                circle.style.left = x - radius + "px";
+                circle.style.width = 2 * radius + "px";
+                circle.style.height = 2 * radius + "px";
+                circle.style.borderRadius = radius + "px";
+                circle.style.backgroundColor = backgroundColor;
+
+                document.body.appendChild(circle);
+
+                // Set up the transition for the circle
+                circle.style.transition = "width 1s, height 1s, opacity 1s";
+
+                // Trigger the transition after a short delay
+                setTimeout(() => {
+                    circle.style.width = "0";
+                    circle.style.height = "0";
+                    circle.style.opacity = "0";
+                }, 10);
+
+                // Remove the circle from the document after the animation duration
+                const animationDuration = 1000; // 1 second (adjust as needed)
+                setTimeout(() => {
+                    document.body.removeChild(circle);
+                }, animationDuration);
+            }
+        </script>
+    </body>
+</html>

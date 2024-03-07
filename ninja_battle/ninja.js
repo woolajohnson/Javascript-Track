@@ -39,4 +39,9 @@ for (let i = 1; i <= 10; i++) {
     );
 }
 if (ninja1Hp > ninja2Hp) {
+    console.log("Ninja1 WINS!!!!!");
+} else if (ninja2Hp > ninja1Hp) {
+    console.log("Ninja2 WINS!!!!!");
+} else {
+    console.log("IT'S A DRAW!!!!!");
 }
