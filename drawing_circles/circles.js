@@ -1,9 +1,49 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("color");
-    document.addEventListener("click", function (event) {
-        const randomRadius = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
-        createCircle(event.clientX, event.clientY, randomRadius, "#CCE8CC");
-    });
+let chosenColor = "#b6d6a8";
+
+function chooseColor(color) {
+    if (color == "green") {
+        chosenColor = "#b6d6a8";
+    } else if (color == "blue") {
+        chosenColor = "#9fc4f7";
+    } else if (color == "purple") {
+        chosenColor = "#b4a6d5";
+    }
+    // Remove border from all color boxes
+    document.getElementById("green").style.border = "none";
+    document.getElementById("blue").style.border = "none";
+    document.getElementById("purple").style.border = "none";
+
+    // Add border to the chosen color box
+    document.getElementById(color).style.border = "2px solid #000";
+}
+
+function resetScreen() {
+    // Clear all circles on the screen
+    const circles = document.getElementsByClassName("shrink-circle");
+    while (circles.length > 0) {
+        document.body.removeChild(circles[0]);
+    }
+
+    // Remove border from all color boxes
+    document.getElementById("green").style.border = "none";
+    document.getElementById("blue").style.border = "none";
+    document.getElementById("purple").style.border = "none";
+
+    // Reset chosen color to green
+    chosenColor = "#b6d6a8";
+
+    // Add border to the green color box
+    document.getElementById("green").style.border = "2px solid #000";
+}
+
+document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("box")) {
+        // Stop the event from propagating to the document click event
+        event.stopPropagation();
+        return;
+    }
+    const randomRadius = Math.floor(Math.random() * 191) + 10;
+    createCircle(event.clientX, event.clientY, randomRadius, chosenColor);
 });
 
 function createCircle(x, y, radius, backgroundColor) {
@@ -20,16 +60,17 @@ function createCircle(x, y, radius, backgroundColor) {
     document.body.appendChild(circle);
 
     // Set up the transition for the circle
-    circle.style.transition = "width 1s, height 1s, opacity 1s";
+    circle.style.transition = "width 5s, height 5s, opacity 5s";
 
     // Trigger the transition after a short delay
     setTimeout(() => {
         circle.style.width = "0";
         circle.style.height = "0";
+        circle.style.opacity = "0";
     }, 10);
 
     // Remove the circle from the document after the animation duration
-    const animationDuration = 1000; // 1 second (adjust as needed)
+    const animationDuration = 1000;
     setTimeout(() => {
         document.body.removeChild(circle);
     }, animationDuration);
