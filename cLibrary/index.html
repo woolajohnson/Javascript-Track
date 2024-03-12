@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS cLibrary</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="canvas"></div>
+        <script src="es6_clibrary.js"></script>
+        <script>
+            // initialize cLib (circleLibrary) with 100 circles
+            var cLib = new Circles(100);
+
+            // draw 100 circles on #canvas
+            cLib.draw_circles("canvas");
+        </script>
+    </body>
+</html>
