@@ -1,0 +1,56 @@
+body {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: #c4c4c4;
+}
+#colorChoices,
+#shapeChoices {
+    display: flex;
+}
+.box {
+    padding: 1.3rem 2.5rem;
+    margin-right: 10px;
+    cursor: pointer;
+}
+#resetButton {
+    padding: 0.8em 2em;
+    border: 2px solid #000;
+    background-color: red;
+}
+#green {
+    background-color: green;
+    border: 2px solid #000;
+}
+#blue {
+    background-color: blue;
+}
+#purple {
+    background-color: purple;
+}
+.shape {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.8rem;
+    background-color: #fff;
+    cursor: pointer;
+}
+#circle {
+    border-radius: 50%;
+    background-color: green;
+}
+#star {
+    /* Add styling for a star (for example, a star-shaped clip path) */
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}

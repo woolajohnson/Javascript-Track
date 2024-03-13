@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS Shapes in ES6</title>
+        <script src="es6_circles.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="colorChoices">
+            <div
+                class="box"
+                id="green"
+                onclick="ShapeSelector.chooseColor('green')"
+            ></div>
+            <div
+                class="box"
+                id="blue"
+                onclick="ShapeSelector.chooseColor('blue')"
+            ></div>
+            <div
+                class="box"
+                id="purple"
+                onclick="ShapeSelector.chooseColor('purple')"
+            ></div>
+        </div>
+        <div id="shapeChoices">
+            <div
+                class="shape"
+                id="circle"
+                onclick="ShapeSelector.chooseShape('circle')"
+            ></div>
+            <div
+                class="shape"
+                id="square"
+                onclick="ShapeSelector.chooseShape('square')"
+            ></div>
+            <div
+                class="shape"
+                id="star"
+                onclick="ShapeSelector.chooseShape('star')"
+            ></div>
+        </div>
+        <div class="box" id="resetButton" onclick="ShapeSelector.resetScreen()">
+            Reset
+        </div>
+        <div id="canvas"></div>
+    </body>
+</html>
