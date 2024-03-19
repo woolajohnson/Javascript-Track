@@ -32,49 +32,42 @@ const server = http.createServer(function (request, response) {
             response.end();
         });
     } else if (request.url === "/images/slime.jpg") {
-        // notice we won't include the utf8 encoding
         fs.readFile("./images/slime.jpg", function (errors, contents) {
             response.writeHead(200, { "Content-type": "image/jpg" });
             response.write(contents);
             response.end();
         });
     } else if (request.url === "/images/strange.jpg") {
-        // notice we won't include the utf8 encoding
         fs.readFile("./images/strange.jpg", function (errors, contents) {
             response.writeHead(200, { "Content-type": "image/jpg" });
             response.write(contents);
             response.end();
         });
     } else if (request.url === "/images/avengers.jpg") {
-        // notice we won't include the utf8 encoding
         fs.readFile("./images/avengers.jpg", function (errors, contents) {
             response.writeHead(200, { "Content-type": "image/jpg" });
             response.write(contents);
             response.end();
         });
     } else if (request.url === "/images/furious.jpg") {
-        // notice we won't include the utf8 encoding
         fs.readFile("./images/furious.jpg", function (errors, contents) {
             response.writeHead(200, { "Content-type": "image/jpg" });
             response.write(contents);
             response.end();
         });
     } else if (request.url === "/images/sm.png") {
-        // notice we won't include the utf8 encoding
         fs.readFile("./images/sm.png", function (errors, contents) {
             response.writeHead(200, { "Content-type": "image/png" });
             response.write(contents);
             response.end();
         });
     } else if (request.url === "/images/ayala.png") {
-        // notice we won't include the utf8 encoding
         fs.readFile("./images/ayala.png", function (errors, contents) {
             response.writeHead(200, { "Content-type": "image/png" });
             response.write(contents);
             response.end();
         });
     } else if (request.url === "/images/robinsons.jpg") {
-        // notice we won't include the utf8 encoding
         fs.readFile("./images/robinsons.jpg", function (errors, contents) {
             response.writeHead(200, { "Content-type": "image/jpg" });
             response.write(contents);
