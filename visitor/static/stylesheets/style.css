@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    max-width: 30rem;
+    text-align: center;
+    margin: 5rem auto;
+    padding: 2em;
+}
+span {
+    color: red;
+    font-size: 2.5rem;
+}
+h2 {
+    margin: 1rem 0 1.8rem;
+}
+a {
+    padding: 0.5em 1em;
+    color: #fefefe;
+    border-radius: 0.3em;
+    text-decoration: none;
+}
+.reset {
+    background-color: blue;
+}
+.repeat {
+    background-color: green;
+}
