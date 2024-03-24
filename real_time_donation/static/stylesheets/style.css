@@ -1,0 +1,29 @@
+section {
+    max-width: 35rem;
+    margin: 2rem auto;
+    text-align: center;
+    outline: 1px solid #1f1f1f;
+    padding: 3em;
+    h1 {
+        font-size: 2.8em;
+    }
+    p {
+        font-size: 1.5em;
+    }
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    button {
+        padding: 0.7em 1.3em;
+        cursor: pointer;
+        color: #fff;
+    }
+    #donate {
+        background-color: rgb(48, 150, 247);
+    }
+    #redeem {
+        background-color: red;
+    }
+}
