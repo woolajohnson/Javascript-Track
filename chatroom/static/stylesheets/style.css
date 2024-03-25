@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #fef5ea;
+}
+.container {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 0.6em;
+    max-width: 50rem;
+    height: 70vh;
+    margin: 3rem auto;
+    padding: 3em;
+    background-color: #fff;
+    main {
+        min-height: 80%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        p {
+            font-size: 1.1em;
+        }
+        .convo {
+            padding: 2.5em;
+            width: 35rem;
+            .chat-block {
+                margin-bottom: 1.2em;
+                border-bottom: 1px solid #bbbbbb;
+                padding-bottom: 0.8em;
+                h4 {
+                    font-size: 1.1rem;
+                    margin-bottom: 0.2em;
+                    color: blue;
+                }
+            }
+        }
+        .participants {
+            border-radius: 0.3em;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+                rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+            width: 10rem;
+            h3 {
+                font-size: 1.3rem;
+                margin: 1.5rem 0 1rem 0;
+                text-align: center;
+                color: blue;
+            }
+            ul {
+                list-style-type: none;
+                width: 100%;
+                padding: 1em 1.5em;
+                li {
+                    font-size: 1.3rem;
+                    margin-bottom: 0.3rem;
+                }
+            }
+        }
+    }
+    form {
+        margin-top: 2rem;
+        input {
+            width: 24rem;
+            padding: 0.8em;
+        }
+        select {
+            padding: 0.8em;
+            width: 7.8rem;
+            background-color: #101010;
+            color: #fff;
+            margin-right: 2rem;
+        }
+        button {
+            padding: 1em 4.5em;
+            cursor: pointer;
+            color: #fff;
+            background-color: rgb(48, 150, 247);
+            background-color: blue;
+            border: none;
+            border-radius: 0.2em;
+        }
+    }
+}

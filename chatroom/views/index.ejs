@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chatroom</title>
+        <link rel="stylesheet" href="./stylesheets/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script defer type="text/javascript">
+            const socket = io();
+            const userName = prompt("What is your name?");
+            socket.emit("new_user", userName);
+            socket.on("existing_users", function (data) {
+                $(".names").empty();
+                $("#recipient").empty();
+                $("#recipient").append(
+                    '<option value="Everyone">Everyone</option>'
+                );
+                for (let i = 0; i < data.length; i++) {
+                    $(".names").append("<li>" + data[i].name + "</li>");
+                    if (data[i].name !== userName) {
+                        $("#recipient").append(
+                            '<option value="' +
+                                data[i].name +
+                                '">' +
+                                data[i].name +
+                                "</option>"
+                        );
+                    }
+                }
+            });
+
+            $(document).ready(function () {
+                let userInput, recipient;
+                $("#form").submit((event) => {
+                    event.preventDefault();
+                    userInput = $("#userInput").val();
+                    recipient = $("#recipient").val();
+                    chatSubmit();
+                });
+                const chatSubmit = () => {
+                    if (userInput !== "") {
+                        socket.emit("new_message", {
+                            message: userInput,
+                            receiver: recipient,
+                        });
+                    }
+                };
+                socket.on("updated_messages", function (data) {
+                    $(".convo").empty();
+                    for (let i = 0; i < data.length; i++) {
+                        $(".convo").append(
+                            '<div class="chat-block"><h4>User to ' +
+                                data[i].receiver +
+                                ":</h4><p>" +
+                                data[i].message +
+                                " </p></div>"
+                        );
+                    }
+                });
+                socket.on("private_messages", function (data) {
+                    $(".convo").empty();
+                    for (let i = 0; i < data.length; i++) {
+                        $(".convo").append(
+                            '<div class="chat-block"><h4>User to ' +
+                                data[i].receiver +
+                                ":</h4><p>" +
+                                data[i].message +
+                                " </p></div>"
+                        );
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <main>
+                <section class="convo"></section>
+                <section class="participants">
+                    <h3>Participants</h3>
+                    <ul class="names"></ul>
+                </section>
+            </main>
+            <form action="/" method="POST" id="form">
+                <label for="userInput"></label>
+                <input type="text" name="userInput" id="userInput" />
+                <select name="recipient" id="recipient">
+                    <option value="Everyone">Everyone</option>
+                </select>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </body>
+</html>
